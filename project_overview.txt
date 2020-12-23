@@ -1,0 +1,59 @@
+Data Preprocessing and Feature Engineering for Machine Learning
+-->Predict house prices for districts in California
+
+-->Trained and tested appropriate machine learning model using scikit-learn library
+
+-->Dataset containing information on more than 20000 districts in California
+
+-->Data preprocessing with pandas library
+        -created new columns
+        -rooms per household
+        -population per household
+        -bedrooms per room
+
+-->Finding factors that influence house prices by creating informative graphs (histograms, scatter plots, regression plot with linear regression line, kernel density estimation)
+    -Created correlationn matrix between label and features
+    -Using seaborn.joinplot, joined scatter plot and regression plot with linear regression line to see relationship between median_income and median_house_value
+    -Using pandas.plot, created scatter plot to see relationship between median_house_value, population, and district(latitude and longitude)
+    -Combined the scatter plot with california map for better visualization
+    -Created plot for only near the ocean districts and inland districts
+    -Using seaborn.countplot, plotted income category and ocean proximity
+Python Libraries used in the project
+    -Using seaborn.barplot, first, plotted income category and median_house_value and then, plotted ocean proximity and median_house_value
+    -Using seaborn.heatmap, plotted income category and ocean proximity
+
+-->Feature Engineering with scipy and pandas library
+    -Using scipy.stats, standarized all numerical features
+    -Since machine learning algorithms cannot handle text data, transformed text like categorical data into numbers by implementing one hot encoding
+
+-->Splitting data into Train and Test Set
+    -To create test set, splitting dataset by drawing a random sample using pandas sample method
+    -Implemented stratified sampling, to divide five income categories in training and test data set to have same ratios as in whole dataset
+    -To create training set, check whether row labels exist in test set, if not then copy it into new training set dataframe
+    -Shuffle training set by using sample method from pandas, drawing all rows in random order
+    -Dropped income_cat column since it is not necessary for the model
+    -Splitting label (median_house_price) into training set and test set
+
+-->Training model using Random Forest Regressor
+    -Random Forest Regressor algorithm used because there are important features that influence house prices in non-linear way
+    -To determine the fit of the model, used two metrics, one was coefficient of determination and another one, mean squared error
+    -For mean squared error, made predictions on traning set and then compared actual labels with the predicted labels. Using numpy.sqrt, took the square root of mean_squared error obtained.
+
+-->Evaluating model on test set
+    -Determine coefficient of determination
+    -Calculate mean squared error and root mean squared error 
+    -Compare predicted values with actual values
+    -Calculate difference between predicted and actual values using numberical absolute reference
+    -Calculate mean absolute difference
+    
+-->Random forest regressor helps to find importance of all the features and to get better idea, plotted the result of feature_importances_ using horizontal bar plot
+
+Python libraries used in the project  
+-->pandas
+-->matplotlib.pyplot
+-->matplotlib.image
+-->numpy
+-->seaborn
+-->scipy.stats
+-->sklearn.ensemble
+-->sklearn.metrics
